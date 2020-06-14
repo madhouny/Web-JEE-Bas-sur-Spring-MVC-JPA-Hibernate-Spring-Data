@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Add Produit</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+	
+	<link rel="stylesheet" type="text/css"
+	href="../static/css/style.css"
+	th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<div th:insert="layout :: myheader"></div>
+
+<div  class="col-md-6 col-xs-12 spacer" >
+	<div class="panel panel-default">
+		<div class="panel-heading"> Modifier un produit</div>
+		<div class="panel-body">
+			
+			<form th:action="@{/admin/save}" method="POST">
+			
+			<div class="form-group">
+					<label class="control-label">ID:</label>
+					<input class="form-control" type="text" name="id" th:value="${produit.id}"/>
+					<span class="red" th:errors="${produit.id}"></span>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label">Désignation:</label>
+					<input class="form-control" type="text" name="designation" th:value="${produit.designation}"/>
+					<span class="red" th:errors="${produit.designation}"></span>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label">Prix:</label>
+					<input class="form-control" type="text" name="prix" th:value="${produit.prix}"/>
+					<span class="red" th:errors="${produit.prix}"></span>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label">Quantite:</label>
+					<input class="form-control" type="text" name="quantite" th:value="${produit.quantite}"/>
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Save</button>
+			
+			</form>
+			
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
